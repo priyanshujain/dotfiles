@@ -1,6 +1,5 @@
 #!/bin/bash
-# Taken from:
-#	https://raw.github.com/kaihendry/Kai-s--HOME/master/.xinitrc
+# 
 #
 # for terminus font in Archlinux :(
 xset +fp /usr/share/fonts/TTF &
