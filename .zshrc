@@ -85,3 +85,45 @@ source $ZSH/oh-my-zsh.sh
 source /home/priyanshu/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /home/priyanshu/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 alias capy='xclip -o | xclip -selection clipboard -i'
+
+alias icpc="cd /home/priyanshu/Workspace/ICPC"
+alias ll='ls -alh --group-directories-first --color=always'
+
+alias suspend='sudo systemctl suspend'
+alias s='sudo systemctl'
+alias grep='GREP_COLOR="1;33;40" LANG=C grep --exclude-dir=node_modules --color=auto'
+
+# -------------------------------------------------------------------
+# Git
+# -------------------------------------------------------------------
+alias ga='git add'
+alias gp='git push'
+alias gl='git log'
+alias gs='git status'
+alias gd='git diff'
+alias gm='git commit -m'
+alias gma='git commit -am'
+alias gb='git branch'
+alias gc='git checkout'
+alias gra='git remote add'
+alias grr='git remote rm'
+alias gpu='git pull'
+alias gcl='git clone'
+alias gta='git tag -a -m'
+alias gf='git reflog'
+
+
+#------------------------------------------------------------------------
+# Python 2 Virtual Environment
+#------------------------------------------------------------------------
+alias p2env="virtualenv -p /usr/bin/python2.7 --distribute temp-python"
+alias p2act="source temp-python/bin/activate"
+alias p2dact="deactivate"
+
+#------------------------------------------------------------------------
+# Pacman Aliases
+#------------------------------------------------------------------------
+alias update="sudo pacman -Syu"
+alias install="sudo pacman -S"
+
+

@@ -1,7 +1,5 @@
 #!/bin/bash
-# 
-#
-# for terminus font in Archlinux :(
+
 xset +fp /usr/share/fonts/TTF &
 xset fp rehash
 
@@ -27,10 +25,10 @@ done &
 xrandr --output VGA-1 --auto --left-of LVDS-1 &
 
 xrdb -merge ~/.Xresources
+
 pulseaudio --start &
- 
 set enable-keypad on
- 
+
 make /home/priyanshu/dwm
 
 exec /home/priyanshu/dwm/dwm
