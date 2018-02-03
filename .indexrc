@@ -1,0 +1,5 @@
+
+# source all rc's
+
+source ./common/.aliasrc
+source ./common/.exportrc

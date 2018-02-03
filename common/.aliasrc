@@ -1,0 +1,49 @@
+
+
+# -------------------------------------------------------------------
+# Git
+# -------------------------------------------------------------------
+alias ga='git add'
+alias gp='git push'
+alias gl='git log'
+alias gs='git status'
+alias gst='git stash'
+alias gsp='git stash pop'
+alias gd='git diff'
+alias gc='git commit'
+alias gm='git commit -m'
+alias gma='git commit -am'
+alias gb='git branch'
+alias gch='git checkout'
+alias gra='git remote add'
+alias grr='git remote rm'
+alias gpu='git pull'
+alias gcl='git clone'
+alias gta='git tag -a -m'
+alias gf='git reflog'
+alias e='emacs'
+
+
+
+## System Aliases
+alias release='lsb_release -da'
+alias battery='upower -d'
+alias ls='ls --color=auto'
+alias sleep='echo -n mem >/sys/power/state'
+alias ll='ls -alh --group-directories-first --color=always'
+alias suspend='sudo systemctl suspend'
+alias s='sudo systemctl'
+alias grep='GREP_COLOR="1;33;40" LANG=C grep --exclude-dir=node_modules --color=auto'
+
+# Navigation aliases
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
+
+# ip 
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
+# Reload the shell (i.e. invoke as a login shell)
+alias reload="exec $SHELL -l"

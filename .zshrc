@@ -1,11 +1,23 @@
-# Path to your oh-my-zsh installation.
-  export ZSH=/home/priyanshu/.oh-my-zsh
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
+# Path to your oh-my-zsh installation.
+  export ZSH=$HOME/.oh-my-zsh
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
+
+#ZSH_THEME="agnoster" # (this is one of the fancy ones)
+# see https://github.com/robbyrussell/oh-my-zsh/wiki/Themes#agnoster
+
+# Set list of themes to load
+# Setting this variable when ZSH_THEME=random
+# cause zsh load theme from this variable instead of
+# looking in ~/.oh-my-zsh/themes/
+# An empty array have no effect
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -49,14 +61,15 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting)
+plugins=(
+  git
+)
+
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-  export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 # export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -72,7 +85,7 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -82,48 +95,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source /home/priyanshu/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /home/priyanshu/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-alias capy='xclip -o | xclip -selection clipboard -i'
-
-alias icpc="cd /home/priyanshu/Workspace/ICPC"
-alias ll='ls -alh --group-directories-first --color=always'
-
-alias suspend='sudo systemctl suspend'
-alias s='sudo systemctl'
-alias grep='GREP_COLOR="1;33;40" LANG=C grep --exclude-dir=node_modules --color=auto'
-
-# -------------------------------------------------------------------
-# Git
-# -------------------------------------------------------------------
-alias ga='git add'
-alias gp='git push'
-alias gl='git log'
-alias gs='git status'
-alias gd='git diff'
-alias gm='git commit -m'
-alias gma='git commit -am'
-alias gb='git branch'
-alias gc='git checkout'
-alias gra='git remote add'
-alias grr='git remote rm'
-alias gpu='git pull'
-alias gcl='git clone'
-alias gta='git tag -a -m'
-alias gf='git reflog'
+source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
-#------------------------------------------------------------------------
-# Python 2 Virtual Environment
-#------------------------------------------------------------------------
-alias p2env="virtualenv -p /usr/bin/python2.7 --distribute temp-python"
-alias p2act="source temp-python/bin/activate"
-alias p2dact="deactivate"
+# source all rc's
 
-#------------------------------------------------------------------------
-# Pacman Aliases
-#------------------------------------------------------------------------
-alias update="sudo pacman -Syu"
-alias install="sudo pacman -S"
-
-
+source ~/.airctorc
+source ~/dotfiles/.indexrc

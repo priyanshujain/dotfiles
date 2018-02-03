@@ -29,6 +29,6 @@ xrdb -merge ~/.Xresources
 pulseaudio --start &
 set enable-keypad on
 
-make /home/priyanshu/dwm
+make $HOME/dwm
 
-exec /home/priyanshu/dwm/dwm
+exec $HOME/dwm/dwm
