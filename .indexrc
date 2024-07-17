@@ -1,5 +1,0 @@
-
-# source all rc's
-
-source $HOME/dotfiles/common/.aliasrc
-source $HOME/dotfiles/common/.exportrc
