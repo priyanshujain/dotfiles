@@ -53,13 +53,59 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# Initialize and preserve search text
+zle_history_search_init() {
+  SEARCH_TEXT=$LBUFFER
+}
+
+history-beginning-search-up() {
+  if [[ -z "$SEARCH_TEXT" ]]; then
+    zle_history_search_init
+  fi
+  BUFFER=$SEARCH_TEXT
+  zle history-beginning-search-backward
+  if [[ $BUFFER == $SEARCH_TEXT ]]; then
+    # If no match is found, set to the end of the line
+    zle end-of-line
+  fi
+}
+zle -N history-beginning-search-up
+
+history-beginning-search-down() {
+  if [[ -z "$SEARCH_TEXT" ]]; then
+    zle_history_search_init
+  fi
+  BUFFER=$SEARCH_TEXT
+  zle history-beginning-search-forward
+  if [[ $BUFFER == $SEARCH_TEXT ]]; then
+    # If no match is found, set to the end of the line
+    zle end-of-line
+  fi
+}
+zle -N history-beginning-search-down
+
+# Reset the search text when accepting a line
+zle-line-init() {
+  SEARCH_TEXT=""
+}
+zle -N zle-line-init
+
+
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+
 # Keybindings
 bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
-bindkey '^[[A' history-beginning-search-backward
-bindkey '^[[B' history-beginning-search-forward
+# bindkey '^[[A' history-beginning-search-backward-end
+# bindkey '^[[B' history-beginning-search-forward-end
+
+# bindkey '^[[A' history-beginning-search-up
+# bindkey '^[[B' history-beginning-search-down
+
+
 
 # History
 HISTSIZE=5000
@@ -88,3 +134,9 @@ alias c='clear'
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/pj/.config/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/pj/.config/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/pj/.config/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/pj/.config/google-cloud-sdk/completion.zsh.inc'; fi
